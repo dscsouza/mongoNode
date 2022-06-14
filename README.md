@@ -19,4 +19,4 @@ Redirecionamento dos links baseado no title definido pelo usuário
 
 
 Banco de dados em MongoDB
-![Banco de dados](public/prints/banco de dados - mongodb.png)
+![Banco de dados](https://github.com/dscsouza/mongoNode/blob/8f573ccee74bb1b0d42b72218ed2c8d9f4e2685e/public/prints/banco%20de%20dados%20-%20mongodb.png)
