@@ -28,7 +28,7 @@ router.get("/", async (req, res) => {
 
 });
 
-router.delete("/:id", linkController.deleteLinks)
+router.delete("/del/:id", express.urlencoded({extended:true}), linkController.deleteLinks)
 
 router.get("/edit/:id", linkController.loadLink)
 

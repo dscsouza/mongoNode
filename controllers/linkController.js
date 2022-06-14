@@ -4,6 +4,7 @@ const Link = require("../models/Link")
 //função que vai se comunicar com o BD e buscar o registro
 const redirect = async(req,res)=>{
     let title = req.params.title;
+    let doc = await Link.findOneAndUpdate({title}, {$inc: {click:1}})
     try {
         let doc = await Link.findOne({ title });
         res.redirect(doc.url);
@@ -21,7 +22,8 @@ const addLink = async (req, res)=>{
   try {
     doc = await link.save()
     linkData = await allLinksData();
-    res.render('index', {error:{message:"Registro incluído com sucesso"}, body:"", links:linkData})
+    res.redirect('/');
+    // res.render('index', {error:{message:"Registro incluído com sucesso"}, body:"", links:linkData})
   } catch (error) {
     res.render('index', {error, body: req.body, links:""})
 
@@ -51,10 +53,10 @@ const allLinks = async (req, res)=>{
 
 const deleteLinks = async (req, res)=>{
   try {
-    id = req.params.id;
+    id = req.params.id
     del = await Link.findByIdAndDelete(id)
-    linkData = await allLinksData();
-    res.render('index', {error:{message:"Registro excluído com sucesso"}, body:"", links:linkData})
+    res.redirect('/');
+    // res.render('index', {error:{message:"Registro excluído com sucesso"}, body:"", links:linkData})
   } catch (error) {
     res.render('index', {error, body:"", links:(linkData)?linkData:""})
   
@@ -86,8 +88,8 @@ const editLink = async(req, res)=>{
       console.log(link)
     
     linkEdit = await Link.findByIdAndUpdate(id, link)
-    linkData = await allLinksData();
-    res.render('index', {error: {message: "Registro alterado com sucesso."}, body:'', links:linkData})
+    res.redirect('/');
+    // res.render('index', {error: {message: "Registro alterado com sucesso."}, body:'', links:linkData})
   } catch (error) {
     res.render('index', {error, body:"", links:(linkData)?linkData:""})
   

@@ -48,7 +48,7 @@ db.once("open", () => {
 });
 
 
-
+app.use('/static', express.static(__dirname + '/public'));
 
 //aqui indicamos que vamos utilizar a rota linkRouter
 app.use("/", linkRouter)

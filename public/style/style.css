@@ -1,0 +1,78 @@
+
+:root{
+    --btn: hidden;
+}
+body{
+    background-color:azure;
+    font-family: monospace;
+}
+.linksTable{
+    border: none;
+    
+
+
+}
+.lastColumn{
+    background-color:azure !important;
+}
+
+/* estilo aplicado ao cabeçalho da tabela */
+.rowHeader{
+
+   
+    background-color: #B0C4DE;
+   
+}
+
+
+
+/* estilo comum a todas as linhas */
+.row{
+
+    color: black;
+    height: 40px;
+    text-align: center;
+    margin-left: 2px;
+
+}
+
+
+.showBtn:hover{
+    
+    --btn: visible;
+}
+
+.col-btn{
+    
+    visibility: var(--btn);
+}
+.btn{
+    border: none;
+    border-radius: 5px;
+    height: 30px;
+    font-family: monospace;
+    background-color: rgba(100, 148, 237, 0.886);
+    color: white;
+
+}
+.btn:hover{
+    background-color: rgb(74, 131, 238);
+
+}
+
+.col-transparent{
+    background-color: azure !important;
+
+}
+
+/* estilo aplicado às linhas ímpares */
+.rowOdd{
+    
+    background-color: #b0c4de88;
+}
+/* estilo aplicado às linhas pares */
+.rowPair{
+    
+    background-color: white;
+    
+}

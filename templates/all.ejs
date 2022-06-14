@@ -5,32 +5,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All links</title>
+    <link rel="stylesheet" href="/static/style/style.css">
+
 </head>
 <body>
+    
+    
     <% if (links.length != 0) { %>
      
     
     <h2>Links já adicionados</h2>
-    <table>
-        <tr>
+    <table class="linksTable">
+        <tr class="rowHeader">
             <th>Title</th>
             <th>Description</th>
             <th>URL</th>
-            <th></th>
+            <th>Clicks</th>
+            <th class= "lastColumn"></th>
         </tr>
 
     <% for( let i = 0; i < links.length; i++ ) { %>
         
         
-        <tr id="<%= links[i]._id %>">
-            <form method="POST" action="<%= links[i]._id %>?_method=DELETE">
+        <tr id="<%= links[i]._id %>" class="showBtn row <%= (i%2==0)?"rowPair":"rowOdd" %>">
+            <form method="POST" action="del/<%= links[i]._id %>?_method=DELETE">
                 <td><%= links[i].title %></td>
                 <td><%= links[i].description %></td>
                 <td><%= links[i].url %></td>
-                <td><button type="submit">Delete</button></td>
-                <td><button type="button" onclick="window.location.href='/edit/<%= links[i]._id %>'">Editar</button></td>
+                <td><%= links[i].click %></td>
+
+           
+                <td class="col-transparent"><button class="col-btn btn" type="submit">Delete</button>
+                <button class="col-btn btn" type="button" onclick="window.location.href='/edit/<%= links[i]._id %>'">Editar</button></td>
             </form>
-        </tr>  
+        </tr> 
     
     <% } %>
 
