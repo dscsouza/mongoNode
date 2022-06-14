@@ -17,3 +17,6 @@ Redirecionamento dos links baseado no title definido pelo usuário
 ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/9cf252b4-eed2-436b-85e4-fe94a3ff40ff/Untitled.png)
 
 
+
+Banco de dados em MongoDB
+![Banco de dados](public/prints/banco de dados - mongodb.png)
