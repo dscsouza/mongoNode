@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Incluir Link</title>
+</head>
+<body>
+
+    <h2>Qual link inserir no banco de dados</h2>
+
+    <!-- no action colocamos "/" mesmo, pois a rota principal quem trata a 
+    inclusão de novos links -->
+    <form action="/" method="post">
+        <input class="field" type="text" name="title" id="title" placeholder="Title" value="<%=body.title%>" required>
+        <input class="field" type="text" name="description" id="description" placeholder="Description" value="<%=body.description%>">
+        <input class="field" type="text" name="url" id="url" placeholder="URL" value="<%=body.url%>" required>
+        <button type="submit">Salvar</button>
+
+    </form>
+
+    <% if (error) { %>
+        <h5><%= error.message %> </h5>
+     
+    <% } %>
+
+    <%- include('all', {links}) %> 
+      
+</body>
+</html>

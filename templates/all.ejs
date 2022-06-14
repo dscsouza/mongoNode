@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All links</title>
+</head>
+<body>
+    <% if (links.length != 0) { %>
+     
+    
+    <h2>Links já adicionados</h2>
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>URL</th>
+            <th></th>
+        </tr>
+
+    <% for( let i = 0; i < links.length; i++ ) { %>
+        
+        
+        <tr id="<%= links[i]._id %>">
+            <form method="POST" action="<%= links[i]._id %>?_method=DELETE">
+                <td><%= links[i].title %></td>
+                <td><%= links[i].description %></td>
+                <td><%= links[i].url %></td>
+                <td><button type="submit">Delete</button></td>
+                <td><button type="button" onclick="window.location.href='/edit/<%= links[i]._id %>'">Editar</button></td>
+            </form>
+        </tr>  
+    
+    <% } %>
+
+    <% } %>
+
+</table>
+    
+</body>
+</html>

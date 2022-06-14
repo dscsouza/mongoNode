@@ -6,12 +6,12 @@ const express = require("express");
 const mongoose = require("mongoose");
 //inicializando o método express
 const app = express();
+//importando esse método apenas para pegar o caminho dos arquivos
+const path = require('path')
 
 //rota dos links, onde chamamos o Schema Link e fazemos
 //todo o tratamento dessa rota
 const linkRouter = require('./routes/linkRoute')
-
-
 
 
 //exemplo de novo link
@@ -48,8 +48,18 @@ db.once("open", () => {
 });
 
 
+
+
 //aqui indicamos que vamos utilizar a rota linkRouter
 app.use("/", linkRouter)
+
+
+//setando a engine de templates que será utilizada
+//no exemplo será o ejs
+app.set("view engine","ejs")
+//setando o caminho de onde ficarão as "views", ou templates,
+//no exemplo os templates ficarão no caminho principal, templates
+app.set("views", path.join(__dirname, "templates") )
 
 
 
